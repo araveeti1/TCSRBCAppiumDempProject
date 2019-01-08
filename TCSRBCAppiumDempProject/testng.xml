@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="1" name="Test">
+       <parameter name="platform" value="android"/>
+        <parameter name="udid" value="c75c06ff"/>
+        <parameter name="platformVersion" value="7.1.1"/>
+    <classes>
+      <class name="com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

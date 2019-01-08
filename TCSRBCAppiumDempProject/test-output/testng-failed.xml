@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="platformVersion" value="7.1.1"/>
+    <parameter name="udid" value="c75c06ff"/>
+    <parameter name="platform" value="android"/>
+    <classes>
+      <class name="com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases">
+        <methods>
+          <include name="End"/>
+          <include name="verifyKindleItems"/>
+          <include name="setup"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

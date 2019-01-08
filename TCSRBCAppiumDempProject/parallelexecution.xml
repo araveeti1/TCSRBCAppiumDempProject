@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" parallel="tests" thread-count="3" >
+
+    <test name="Android Real Device">
+        <parameter name="platform" value="android"/>
+        <parameter name="udid" value=""/>
+        <parameter name="platformVersion" value="7.1.1"/>
+        <classes>
+      <class name="com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases"/>
+        </classes>
+    </test>
+
+    <test name="Android Execution">
+        <parameter name="platform" value="android"/>
+        <parameter name="udid" value=""/>
+        <parameter name="platformVersion" value="7.1.1"/>
+        <classes>
+      <class name="com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases"/>
+        </classes>
+    </test>
+
+    <test name="iPhone7 Plus">
+        <parameter name="platform" value="ios"/>
+        <parameter name="udid" value=" "/>
+        <parameter name="platformVersion" value=""/>
+        <classes>
+      <class name="com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases"/>
+        </classes>
+    </test>
+</suite>

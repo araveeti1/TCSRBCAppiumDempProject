@@ -1,0 +1,1 @@
+{"uuid":"4dfc57b3-1492-4daf-bf8c-c241da8606d3","name":"com.appium.demo.rbc.appiumrbcdemo.core.RBCTestBase.setUp","description":"","start":1546473347611,"stop":1546473347612,"children":["baf34d56-8c89-4eb1-abd2-847cd493b913"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","start":1546473347611,"stop":1546473347612}]}

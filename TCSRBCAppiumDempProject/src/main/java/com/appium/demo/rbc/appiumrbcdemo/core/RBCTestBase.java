@@ -128,4 +128,33 @@ public class RBCTestBase {
 	//  recorder.stop();
 	 }
 	
+	@AfterMethod
+	public void TestResultAfterTestMethod(ITestResult result,Method m) {
+
+	    int status = result.getStatus();
+
+	    switch (status) {
+	    
+	        case ITestResult.SUCCESS:
+	    		Reporter.log("The Method ::"+ m.getName() +"is Passed Successfully");
+
+	            break;
+	        case ITestResult.FAILURE:
+	    		Reporter.log("The Method ::"+ m.getName() +"is Failed");
+
+	        	assersion.takeScreenShot();
+	        	
+	            break;
+	        case ITestResult.SKIP:
+	    		Reporter.log("The Method ::"+ m.getName() +"is Skipped");
+
+	        	assersion.takeScreenShot();
+	            break;
+	        default:
+	            throw new RuntimeException("The Invalid status");
+	    }
+	}
+	
+
+	
 }

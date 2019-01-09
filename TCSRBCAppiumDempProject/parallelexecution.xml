@@ -20,6 +20,7 @@
         </classes>
     </test>
 
+    <!--      
     <test name="iPhone7 Plus">
         <parameter name="platform" value="ios"/>
         <parameter name="udid" value=" "/>
@@ -28,4 +29,7 @@
       <class name="com.appium.demo.rbc.appiumrbcdemo.tests.ShopByCategoryTestCases"/>
         </classes>
     </test>
+    -->
+    
+    
 </suite>

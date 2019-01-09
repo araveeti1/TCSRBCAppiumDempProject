@@ -100,22 +100,6 @@ public class MobileActionMethods {
 	}
 
 	
-	
-	//Get the screen size
-	 
-	public int[] getScreenSize() throws IOException {
-		try {
-			Dimension size = ((AppiumDriver) driver).manage().window().getSize();
-			int x = size.width;
-			int y = size.height;
-			int[] returnVal = { x, y };
-			return returnVal;
-		} catch (Exception e) {
-			log.error("Exception is thrown at run time and the test Fails");		
-
-		} 
-		return null;
-	}
 
 	
 	//Closing  the App

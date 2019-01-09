@@ -50,10 +50,6 @@ public class RBCTestBase {
 	
 	public CustomAssersion assersion;
 	public RBCUtils utils;
-	public SignUpPage signup;
-	public HomePage homePage;
-	public ShopByCategory shopBy;
-	
 	// ATUTestRecorder recorder;
 
 	
@@ -132,48 +128,4 @@ public class RBCTestBase {
 	//  recorder.stop();
 	 }
 	
-	@BeforeMethod
-    public void setUp(Method m) {
-		
-		//Initializing the Page Objects with driver instance here....
-		
-		 signup = new SignUpPage(driver);
-		 homePage  = new HomePage(driver);
-		 shopBy = new ShopByCategory(driver);
-		
-        Test test = m.getAnnotation(Test.class);
-        if (test == null) {
-            return;
-        }
-		Reporter.log("The Method that is going to execute is::"+m.getName());
-
-    }
-
-	@AfterMethod
-	public void TestResultAfterTestMethod(ITestResult result,Method m) {
-
-	    int status = result.getStatus();
-
-	    switch (status) {
-	    
-	        case ITestResult.SUCCESS:
-	    		Reporter.log("The Method ::"+ m.getName() +"is Passed Successfully");
-
-	            break;
-	        case ITestResult.FAILURE:
-	    		Reporter.log("The Method ::"+ m.getName() +"is Failed");
-
-	        	assersion.takeScreenShot();
-	        	
-	            break;
-	        case ITestResult.SKIP:
-	    		Reporter.log("The Method ::"+ m.getName() +"is Skipped");
-
-	        	assersion.takeScreenShot();
-	            break;
-	        default:
-	            throw new RuntimeException("The Invalid status");
-	    }
-	}
-
 }

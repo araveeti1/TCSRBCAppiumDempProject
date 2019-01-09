@@ -140,25 +140,50 @@ public class MobileActionMethods {
 	
 	//Getting the Page Source
 	
-public String getPageSource() throws InterruptedException {
-	return driver.getPageSource();
+	public String getPageSource() throws InterruptedException {
+		return driver.getPageSource();
 	
-}
+	}
 
-public boolean waitForElementClickable(MobileElement objElement) {
-	boolean isVerify =  false;
-	log.info("Waiting for the element  ::" + objElement);
-	try {
-	WebDriverWait wait = new WebDriverWait((AppiumDriver) driver, 10L);
-	wait.until(ExpectedConditions.elementToBeClickable(objElement));
-	isVerify = true;
-	}
-	catch(Exception e) {
-		log.error("Exception is thrown at run time and the test Fails");
-		isVerify = false;
-	}
-	return isVerify;
+	/*
+	 * Wait for the Element to be clickable
+	 * 
+	 */
+	public boolean waitForElementClickable(MobileElement objElement) {
+		boolean isVerify =  false;
+		log.info("Waiting for the element  ::" + objElement);
+		try {
+			WebDriverWait wait = new WebDriverWait((AppiumDriver) driver, 10L);
+			wait.until(ExpectedConditions.elementToBeClickable(objElement));
+			isVerify = true;
+		}
+		catch(Exception e) {
+			log.error("Exception is thrown at run time and the test Fails");
+			isVerify = false;
+		}
+		return isVerify;
 	
 	}
+	
+	/*
+	 * Check the Presence of the Element with Text
+	 * 
+	 */
+
+	public boolean verifyElementPresence(MobileElement objElement,String aText) {
+		boolean isVerify =  false;
+		log.info("Verifying the Presence of Element" + objElement);
+		try {
+			WebDriverWait wait = new WebDriverWait((AppiumDriver) driver, 10L);
+			wait.until(ExpectedConditions.textToBePresentInElement(objElement, aText));
+			isVerify = true;
+		}
+		catch(Exception e) {
+			log.error("Exception is thrown at run time while verifying the presence of Element with Text and the test Fails");
+			isVerify = false;
+		}
+		return isVerify;
+	
+		}
 
 }

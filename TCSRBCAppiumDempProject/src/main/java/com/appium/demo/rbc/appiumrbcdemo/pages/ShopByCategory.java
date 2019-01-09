@@ -41,15 +41,16 @@ public class ShopByCategory extends MobileActionMethods{
 	    }
 	    
 	    @AndroidFindBy(xpath = "//android.view.View[@text='Kindle E-Readers & eBooks']")
-
 	    private MobileElement btnKindle;
 	    	   
 	    @AndroidFindBy(xpath = "//android.view.View[@text='Kindle E-Readers']")
-
 	    private MobileElement btnEreader;
-	    private String items  = "//android.view.View[contains(@text, 'Display')]";
 	    
-	    
+	    @AndroidFindBy(xpath = "//android.view.View[contains(@text, 'Kindle E-reader - Black')]")
+	    private MobileElement iTemKindle;
+	    	    
+	    @AndroidFindBy(xpath = "//android.view.View[@text='In stock.']")
+	    private MobileElement lblInStock;
 	    
 	    
 	    
@@ -73,19 +74,35 @@ public class ShopByCategory extends MobileActionMethods{
 	    
 	    
 	
-	    public boolean verifyKindleItems() {
+	    public boolean chooseItem() {
 	    	
 	    	boolean blnVerify = false;
 	    	try {
-	    		assersion.assertNotEquals(driver.findElements(By.xpath(items)).size(), 0, "The Kindle Items are not present in the List and the Test Fails");
-	    		log.info("Successfully Verified the presence of the Kindle Items on the amazon app and the test case is successful");
-	    		closeApp();
+	    		click(iTemKindle);
+	    		log.info("Successfully Clicked on the Kindle Item on the amazon app");
 	    		blnVerify = true;
 	    	}
 	    	catch(Exception e) {
 	    		e.printStackTrace();
 	    		assersion.takeScreenShot();
 	    		log.error("Failed to verify the Kindle Items on the Amazon App and the Test Fails");
+	    	}
+	    	return blnVerify;
+	    }
+	    
+	    
+	    public boolean verifyItemAvailability() {
+	    	
+	    	boolean blnVerify = false;
+	    	try {
+	    		Assert.assertTrue(verifyElementPresence(lblInStock, "In stock."));
+	    		log.info("Successfully Verified the Item Availability and the Test Passed");
+	    		blnVerify = true;
+	    	}
+	    	catch(Exception e) {
+	    		e.printStackTrace();
+	    		assersion.takeScreenShot();
+	    		log.error("The Item is not Available in the Stock and the Test Fails");
 	    	}
 	    	return blnVerify;
 	    }
